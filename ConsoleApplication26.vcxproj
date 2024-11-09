@@ -24,6 +24,7 @@
     <ProjectGuid>{7abb318e-c003-4f64-ba53-e0e7d6b12e28}</ProjectGuid>
     <RootNamespace>ConsoleApplication26</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>home_work_OOP_3</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -127,11 +128,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ConsoleApplication26.cpp" />
+    <ClCompile Include="Banknote.cpp" />
+    <ClCompile Include="Book.cpp" />
+    <ClCompile Include="Kettle.cpp" />
+    <ClCompile Include="MainFile.cpp" />
     <ClCompile Include="home.cpp" />
+    <ClCompile Include="Pen.cpp" />
+    <ClCompile Include="Phone.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="home.h" />
+    <ClInclude Include="Banknote.h" />
+    <ClInclude Include="Book.h" />
+    <ClInclude Include="Kettle.h" />
+    <ClInclude Include="Includes.h" />
+    <ClInclude Include="Pen.h" />
+    <ClInclude Include="Phone.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
