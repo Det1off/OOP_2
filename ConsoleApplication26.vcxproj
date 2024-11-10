@@ -128,16 +128,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Banknote.cpp" />
+    <ClCompile Include="Person.cpp" />
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="Kettle.cpp" />
     <ClCompile Include="MainFile.cpp" />
-    <ClCompile Include="home.cpp" />
     <ClCompile Include="Pen.cpp" />
     <ClCompile Include="Phone.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Banknote.h" />
+    <ClInclude Include="Person.h" />
     <ClInclude Include="Book.h" />
     <ClInclude Include="Kettle.h" />
     <ClInclude Include="Includes.h" />

@@ -1,6 +1,7 @@
 #pragma once
 #include "Includes.h"
 
+
 class Book {
 private:
     string title;
@@ -28,7 +29,7 @@ public:
 
     void setTitle(string newTitle);
 
-    void setPages(double newPages);
+    void setPages(int newPages);
 
     void setGenre(string newGenre);
 

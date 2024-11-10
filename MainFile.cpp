@@ -1,6 +1,7 @@
 ﻿#include "Includes.h"
 
 
+
 int main() {
 
     Kettle kettle;
@@ -41,10 +42,9 @@ int main() {
 
 
 
-    Banknote banknote;
-    banknote.setSerialNumber(5232121412317873);
-    cout << "Serial number: " << banknote.getSerialNumber() << "\n";
+    Person person;
+    person.setEnergyLvl(50);
 
-    banknote.setYearOfIssue(1996);
-    cout << "Year of issue: " << banknote.getYearOfIssue() << "\n";
+    person.work(person.getEnergyLvl());
+
 }

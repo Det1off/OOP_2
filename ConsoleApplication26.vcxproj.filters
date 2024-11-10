@@ -18,9 +18,6 @@
     <ClCompile Include="MainFile.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="home.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="Book.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -30,7 +27,7 @@
     <ClCompile Include="Pen.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Banknote.cpp">
+    <ClCompile Include="Person.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Kettle.cpp">
@@ -53,7 +50,7 @@
     <ClInclude Include="Pen.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Banknote.h">
+    <ClInclude Include="Person.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

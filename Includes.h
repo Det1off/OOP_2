@@ -1,12 +1,11 @@
 #pragma once
 //______________ Modules _______________
 #include <iostream>
-#include <stralign.h>
-
+using namespace std;
 //______________ Classes ________________
-#include "Banknote.h"
+#include "Person.h"
 #include "Pen.h"
 #include "Phone.h"
 #include "Book.h"
 #include "Kettle.h"
-using namespace std;
+

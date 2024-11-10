@@ -29,7 +29,7 @@ void Book::setTitle(string newTitle) {
     title = newTitle;
 }
 
-void Book::setPages(double newPages) {
+void Book::setPages(int newPages) {
     pages = newPages;
 }
 
