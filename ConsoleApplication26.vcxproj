@@ -139,7 +139,6 @@
     <ClInclude Include="Person.h" />
     <ClInclude Include="Book.h" />
     <ClInclude Include="Kettle.h" />
-    <ClInclude Include="Includes.h" />
     <ClInclude Include="Pen.h" />
     <ClInclude Include="Phone.h" />
   </ItemGroup>

@@ -1,12 +1,14 @@
 #pragma once
-#include "Includes.h"
+#include <iostream>
+#include "Person.h"
+using namespace std;
 
 
 class Kettle {
 private:
     string brand;
     double capacity;
-    bool isOn;
+    string isWorking;
     string material;
     int temperature;
     string color;
@@ -15,6 +17,7 @@ private:
 
 public:
     //_________________________________________ Getters _______________________
+
 
     string getBrand();
 
@@ -26,25 +29,28 @@ public:
 
     string getColor();
 
+    string getIsWorking();
+
     //______________________________________ Setters _______________________________
+
+    
 
     void setBrand(string newBrand);
 
     void setCapacity(double newCapacity);
 
-    void setIsOn(string newMaterial);
+    void setMaterial(string newMaterial);
 
     void setTemperature(int newTemperature);
 
     void setColor(string newColor);
 
-
+    void setIsWorking(string newIsWork);
 
     //__________________________________________ Methodes ____________________________________
 
-    void turnOn();
+    void turnOnOff(string ifWork, Person& freeHand);
 
-    void turnOff();
 
     void Temperature(int temp);
 

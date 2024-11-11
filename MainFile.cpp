@@ -1,50 +1,31 @@
-﻿#include "Includes.h"
+﻿#include <iostream>
+#include "Phone.h"
+#include "Person.h"
+#include "Pen.h"
+#include "Book.h"
+#include "Kettle.h"
+using namespace std;
+
 
 
 
 int main() {
 
-    Kettle kettle;
-    kettle.setBrand("Bosh");
-    cout << "Brand: " << kettle.getBrand() << "\n";
-
-    kettle.setTemperature(83);
-    cout << "Temperature: " << kettle.getTemperature() << "\n";
-
-
-
-
-    Book book;
-    book.setAuthor("Pushkin");
-    cout << "Author: " << book.getAuthor() << "\n";
-
-    book.setCurrentPage(23);
-    cout << "Current page: " << book.getCurrentPage() << "\n";
-
-
-
-
+    Person person;
+    person.setName("Maxim");
+    person.setFreeHands(0);
+    
     Phone phone;
-    phone.setOS("Android");
+    phone.setOS("IOS");
     cout << "OS: " << phone.getOS() << "\n";
-
     phone.setModel("Iphone");
     cout << "Model: " << phone.getModel() << "\n";
+    phone.setNumber("+380");
+    phone.call(phone.getNumber(), person);
 
+    Kettle kettle;
+    kettle.setIsWorking("Yes"); // No/Yes
+    kettle.turnOnOff(kettle.getIsWorking(), person);
 
-    Pen pen;
-    pen.setColor("Purple");
-    cout << "Color: " << pen.getColor() << "\n";
-
-    pen.setInkLvl(23.1);
-    cout << "Ink Level: " << pen.getInkLvl() << "\n";
-
-
-
-
-    Person person;
-    person.setEnergyLvl(50);
-
-    person.work(person.getEnergyLvl());
 
 }

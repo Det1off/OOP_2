@@ -1,8 +1,12 @@
 #pragma once
-#include "Includes.h"
+#include <iostream>
+#include "Person.h"
+using namespace std;
+
 
 class Phone {
 private:
+    string number;
     string model;
     string OS;
     int batteryLvl;
@@ -14,6 +18,7 @@ private:
 
 public:
     //_________________________________________ Getters _______________________
+    string getNumber();
 
     string getModel();
 
@@ -27,6 +32,7 @@ public:
 
 
     //______________________________________ Setters _______________________________
+    void setNumber(string newNumber);
 
     void setModel(string newModel);
 
@@ -46,7 +52,7 @@ public:
 
     void turnOff();
 
-    void call(string number);
+    void call(string number, Person& person);
 
     void charge(int amount);
 

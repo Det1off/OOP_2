@@ -1,11 +1,12 @@
 #pragma once
-#include "Includes.h"
+#include <iostream>
+using namespace std;
 
 class Person {
 private:
     int age;
     string name;
-    int freeHands;
+    int freeHands = 0;
     int energyLvl;
     int hungryLvl;
 

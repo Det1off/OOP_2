@@ -1,6 +1,9 @@
 #include "Phone.h"
 
 //_________________________________________ Getters _______________________
+string Phone::getNumber() {
+    return number;
+}
 
 string Phone::getModel() {
     return model;
@@ -24,6 +27,9 @@ string Phone::getColor() {
 
 
 //______________________________________ Setters _______________________________
+void Phone::setNumber(string NewNumber) {
+    number = NewNumber;
+}
 
 void Phone::setModel(string newModel) {
     model = newModel;
@@ -57,8 +63,13 @@ void Phone::turnOff() {
     isOn = false;
 }
 
-void Phone::call(string number) {
-    cout << "Calling " << number << "..." << "\n";
+void Phone::call(string number, Person& person) {
+    if (number == "+380") {
+        cout << "You called to " << person.getName() << "\n";
+    }
+    else {
+        cout << "Unknow persom" << "\n";
+    }
 }
 
 void Phone::charge(int amount) {

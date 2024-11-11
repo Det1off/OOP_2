@@ -1,5 +1,6 @@
 #pragma once
-#include "Includes.h"
+#include <iostream>
+using namespace std;
 
 class Pen {
 private:
