@@ -14,6 +14,7 @@ int main() {
     Person person;
     person.setName("Maxim");
     person.setFreeHands(0);
+    person.getName();
     
     Phone phone;
     phone.setOS("IOS");

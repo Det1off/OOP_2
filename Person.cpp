@@ -24,24 +24,24 @@ int Person::getHungryLvl() {
 
 //______________________________________ Setters _______________________________
 
-void Person::setAge(int newAge) {
-    age = newAge;
+void Person::setAge(int age) {
+    this->age = age;
 }
 
-void Person::setName(string newName) {
-    name = newName;
+void Person::setName(string name) {
+    this->name = name;
 }
 
-void Person::setFreeHands(int newFreeHands) {
-    freeHands = newFreeHands;
+void Person::setFreeHands(int freeHands) {
+    this->freeHands = freeHands;
 }
 
-void Person::setEnergyLvl(int newEnergyLvl) {
-    energyLvl = newEnergyLvl;
+void Person::setEnergyLvl(int energyLvl) {
+    this->energyLvl = energyLvl;
 }
 
-void Person::setHungryLvl(int newHungryLvl) {
-    hungryLvl = newHungryLvl;
+void Person::setHungryLvl(int hungryLvl) {
+    this->hungryLvl = hungryLvl;
 }
 
 //__________________________________________ Methodes ____________________________________
