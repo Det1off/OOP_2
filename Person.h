@@ -13,6 +13,25 @@ private:
 
 
 public:
+
+//________________________Constructors__________________________
+    // явный конструктор без параметров
+    Person() : Person(28, "Maxim", 100) {
+        cout << "Construct was called" << "\n";
+    }
+
+    Person(int age) : Person(age, "Unknow", 0) {
+        cout << "Second construct was callde" << "\n";
+        setAge(age);
+    }
+
+    Person(int age, string name, int energyLvl) {
+        cout << "Third(Main) construct was callde" << "\n";
+        this->age = age;
+        this->name = name;
+        this->energyLvl = energyLvl;
+    }
+
 //_________________________________________ Getters _______________________
 
     int getAge();
@@ -27,19 +46,19 @@ public:
 
 //______________________________________ Setters _______________________________
 
-    void setAge(int newAge);
+    void setAge(int);
 
-    void setName(string newName);
+    void setName(string);
 
-    void setFreeHands(int newFreeHands);
+    void setFreeHands(int);
 
-    void setEnergyLvl(int newEnergyLvl);
+    void setEnergyLvl(int);
 
-    void setHungryLvl(int newHungryLvl);
+    void setHungryLvl(int);
 
 //__________________________________________ Methodes ____________________________________
 
-    void work(int currentEnergy);
+    void work(int);
 
     void read();
 
@@ -47,6 +66,6 @@ public:
 
     void eat();
 
-    void speak();
+    void display() const;
 };
 

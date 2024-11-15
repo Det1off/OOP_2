@@ -17,6 +17,23 @@ private:
 
 
 public:
+
+    //________________________Constructors__________________________
+    // явный конструктор без параметров
+    Phone() : Phone(28, "Sony", "Red") {
+        cout << "Construct was called" << "\n";
+    }
+
+    Phone(int batteryLvl) : Phone(batteryLvl, "Unknow", "Unknow") {
+        cout << "Second construct was callde" << "\n";
+    }
+
+    Phone(int batteryLvl, string model, string color) {
+        cout << "Third(Main) construct was callde" << "\n";
+        this->batteryLvl = batteryLvl;
+        this->model = model;
+        this->color = color;
+    }
     //_________________________________________ Getters _______________________
     string getNumber();
 
@@ -32,17 +49,17 @@ public:
 
 
     //______________________________________ Setters _______________________________
-    void setNumber(string newNumber);
+    void setNumber(string);
 
-    void setModel(string newModel);
+    void setModel(string);
 
-    void setOS(string newOS);
+    void setOS(string);
 
-    void setMaterial(string newMaterial);
+    void setMaterial(string);
 
-    void setBatteryLvl(int newbatteryLvl);
+    void setBatteryLvl(int);
 
-    void setColor(string newColor);
+    void setColor(string);
 
 
 
@@ -52,10 +69,12 @@ public:
 
     void turnOff();
 
-    void call(string number, Person& person);
+    void call(string, Person&);
 
-    void charge(int amount);
+    void charge(int);
 
     void checkBattery();
+
+    void display() const;
 };
 

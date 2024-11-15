@@ -15,6 +15,24 @@ private:
 
 
 public:
+
+    //________________________Constructors__________________________
+    // явный конструктор без параметров
+    Pen() : Pen("Metal", "Automatic", "Penny") {
+        cout << "Construct was called" << "\n";
+    }
+
+    Pen(string material) : Pen(material, "Unknow", "Unknow") {
+        cout << "Second construct was callde" << "\n";
+    }
+
+    Pen(string material, string type, string brand) {
+        cout << "Third(Main) construct was callde" << "\n";
+        this->material = material;
+        this->type = type;
+        this->brand = brand;
+    }
+
 //_________________________________________ Getters _______________________
 
     string getColor();
@@ -30,15 +48,15 @@ public:
 
 //______________________________________ Setters _______________________________
 
-    void setColor(string newColor);
+    void setColor(string);
 
-    void setInkLvl(double newInkLvl);
+    void setInkLvl(double);
 
-    void setType(string newType);
+    void setType(string);
 
-    void setMaterial(string newMaterial);
+    void setMaterial(string);
 
-    void setBrand(string newBrand);
+    void setBrand(string);
 
 
 //__________________________________________ Methodes ____________________________________
@@ -48,8 +66,10 @@ public:
 
     void write();
 
-    void refill(double amount);
+    void refill(double);
 
     void checkInkLevel();
+
+    void display() const;
 };
 

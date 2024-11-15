@@ -69,6 +69,7 @@ void Person::eat() {
     
 }
 
-void Person::speak() {
-    
+void Person::display () const {
+    cout << "Age: " << age << ", Name: " << name << ", Energy Level: " << energyLvl << "\n";
 }
+

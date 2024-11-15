@@ -68,3 +68,7 @@ void Book::read() {
 void Book::bookmark() {
     cout << "Bookmarking page " << currentPage << "\n";
 }
+
+void Book::display() const {
+    cout << "Age: " << pages << ", Name: " << author << ", Energy Level: " << currentPage << "\n";
+}

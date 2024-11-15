@@ -3,27 +3,27 @@
 //_________________________________________ Getters _______________________
 
 string Kettle::getBrand() {
-    return brand;
+    return this->brand;
 }
 
 double Kettle::getCapacity() {
-    return capacity;
+    return this->capacity;
 }
 
 string Kettle::getMaterial() {
-    return material;
+    return this->material;
 }
 
 int Kettle::getTemperature() {
-    return temperature;
+    return this->temperature;
 }
 
 string Kettle::getColor() {
-    return color;
+    return this->color;
 }
 
 string Kettle::getIsWorking() {
-    return isWorking;
+    return this->isWorking;
 }
 
 //______________________________________ Setters _______________________________
@@ -92,4 +92,6 @@ void Kettle::refillWater(double amount) {
     capacity += amount;
 }
 
-
+void Kettle::display() const {
+    cout << "Age: " << temperature << ", Name: " << color << ", Energy Level: " << brand << "\n";
+}

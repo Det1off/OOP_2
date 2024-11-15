@@ -79,3 +79,7 @@ void Phone::charge(int amount) {
 void Phone::checkBattery() {
     cout << "Battery level: " << batteryLvl << "%" << "\n";
 }
+
+void Phone::display() const {
+    cout << "Age: " << batteryLvl << ", Name: " << model << ", Energy Level: " << color << "\n";
+}

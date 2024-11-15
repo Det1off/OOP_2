@@ -66,3 +66,7 @@ void Pen::refill(double amount) {
 void Pen::checkInkLevel() {
     cout << "Ink level: " << inkLvl << "\n";
 }
+
+void Pen::display() const {
+    cout << "Age: " << material << ", Name: " << type << ", Energy Level: " << brand << "\n";
+}

@@ -14,6 +14,24 @@ private:
 
 
 public:
+
+    //________________________Constructors__________________________
+    // явный конструктор без параметров
+    Book() : Book(35, "Sony", 11) {
+        cout << "Construct was called" << "\n";
+    }
+
+    Book(int pages) : Book(pages, "Unknow", 0) {
+        cout << "Second construct was callde" << "\n";
+    }
+
+    Book(int pages, string author, int currentPage) {
+        cout << "Third(Main) construct was callde" << "\n";
+        this->pages = pages;
+        this->author = author;
+        this->currentPage = currentPage;
+    }
+
     //_________________________________________ Getters _______________________
 
     string getTitle();
@@ -28,15 +46,15 @@ public:
 
     //______________________________________ Setters _______________________________
 
-    void setTitle(string newTitle);
+    void setTitle(string);
 
-    void setPages(int newPages);
+    void setPages(int);
 
-    void setGenre(string newGenre);
+    void setGenre(string);
 
-    void setCurrentPage(int newCurrentPage);
+    void setCurrentPage(int);
 
-    void setAuthor(string newAuthor);
+    void setAuthor(string);
 
 
 
@@ -46,10 +64,12 @@ public:
 
     void close();
 
-    void turnPage(int pageNum);
+    void turnPage(int);
 
     void read();
 
     void bookmark();
+
+    void display() const;
 
 };

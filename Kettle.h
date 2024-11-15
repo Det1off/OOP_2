@@ -16,6 +16,24 @@ private:
 
 
 public:
+
+    //________________________Constructors__________________________
+    // явный конструктор без параметров
+    Kettle() : Kettle(28, "Gray", "Panasonic") {
+        cout << "Construct was called" << "\n";
+    }
+
+    Kettle(int batteryLvl) : Kettle(batteryLvl, "Unknow", "Unknow") {
+        cout << "Second construct was callde" << "\n";
+    }
+
+    Kettle(int temperature, string color, string brand) {
+        cout << "Third(Main) construct was callde" << "\n";
+        this->temperature = temperature;
+        this->color = color;
+        this->brand = brand;
+    }
+
     //_________________________________________ Getters _______________________
 
 
@@ -35,13 +53,13 @@ public:
 
     
 
-    void setBrand(string newBrand);
+    void setBrand(string);
 
-    void setCapacity(double newCapacity);
+    void setCapacity(double);
 
-    void setMaterial(string newMaterial);
+    void setMaterial(string);
 
-    void setTemperature(int newTemperature);
+    void setTemperature(int);
 
     void setColor(string newColor);
 
@@ -49,16 +67,16 @@ public:
 
     //__________________________________________ Methodes ____________________________________
 
-    void turnOnOff(string ifWork, Person& freeHand);
+    void turnOnOff(string, Person&);
 
 
-    void Temperature(int temp);
+    void Temperature(int);
 
-    void pourWater(double amount);
+    void pourWater(double);
 
-    void refillWater(double amount);
+    void refillWater(double);
 
-
+    void display() const;
 
 };
 
