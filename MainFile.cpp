@@ -12,7 +12,7 @@ using namespace std;
 int main() {
 
     cout << "Person" << "\n";
-    Person person1();
+    Person person1(13,100,"Maxim");
     Person person2(12, 100);
     Person person;
 
