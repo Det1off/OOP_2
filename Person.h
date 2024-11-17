@@ -1,71 +1,44 @@
 #pragma once
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 class Person {
 private:
     int age;
-    string name;
-    int freeHands = 0;
+    char* name; // Поле-указатель для имени
+    int freeHands;
     int energyLvl;
     int hungryLvl;
 
-
-
 public:
+    // Конструкторы
+    Person();                                // Конструктор без параметров
+    Person(int age, int energyLvl);          // Конструктор с параметрами
+    Person(const string& name);              // Конструктор преобразования
+    Person(int age, int energyLvl, const char* name); // Основной конструктор
 
-//________________________Constructors__________________________
-    // Явный конструктор без параметров
-    Person() : Person(28, "Maxim", 100) {
-        cout << "Construct was called" << "\n";
-    }
+    // Деструктор
+    ~Person();
 
-    Person(int age) : Person(age, "Unknow", 0) {
-        cout << "Second construct was callde" << "\n";
-        setAge(age);
-    }
+    // Геттеры
+    int getAge() ;
+    const char* getName() ;
+    int getFreeHands() ;
+    int getEnergyLvl() ;
+    int getHungryLvl() ;
 
-    Person(int age, string name, int energyLvl) {
-        cout << "Third(Main) construct was callde" << "\n";
-        this->age = age;
-        this->name = name;
-        this->energyLvl = energyLvl;
-    }
+    // Сеттеры
+    void setAge(int age);
+    void setName(const char* name);
+    void setFreeHands(int freeHands);
+    void setEnergyLvl(int energyLvl);
+    void setHungryLvl(int hungryLvl);
 
-//_________________________________________ Getters _______________________
-
-    int getAge();
-
-    string getName();
-
-    int getFreeHands();
-
-    int getEnergyLvl();
-
-    int getHungryLvl();
-
-//______________________________________ Setters _______________________________
-
-    void setAge(int);
-
-    void setName(string);
-
-    void setFreeHands(int);
-
-    void setEnergyLvl(int);
-
-    void setHungryLvl(int);
-
-//__________________________________________ Methodes ____________________________________
-
-    void work(int);
-
+    // Методы
+    void work(int currentEnergy);
     void read();
-
     void write();
-
     void eat();
-
     void display() const;
 };
-

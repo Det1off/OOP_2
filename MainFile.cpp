@@ -12,8 +12,8 @@ using namespace std;
 int main() {
 
     cout << "Person" << "\n";
-    Person person1(10);
-    Person person2(12, "Max", 100);
+    Person person1();
+    Person person2(12, 100);
     Person person;
 
     person1.display();
