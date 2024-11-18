@@ -1,33 +1,5 @@
 #include "Person.h"
 
-// Конструктор без параметров
-Person::Person() : Person(28, 100, "Unknown") {
-    cout << "Конструктор по умолчанию вызван.\n";
-}
-
-// Конструктор с параметрами (возраст и энергия)
-Person::Person(int age, int energyLvl) : Person(age, energyLvl, "Unnamed") {
-    cout << "Конструктор с параметрами (возраст, энергия) вызван.\n";
-}
-
-// Конструктор преобразования от строки
-Person::Person(const string& name) : Person(0, 0, name.c_str()) {
-    cout << "Конструктор преобразования от строки вызван.\n";
-}
-
-// Основной конструктор
-Person::Person(int age, int energyLvl, const char* name)
-    : age(age), energyLvl(energyLvl), hungryLvl(50), freeHands(2) {
-    this->name = new char[strlen(name) + 1];
-    strcpy(this->name, name);
-    cout << "Основной конструктор вызван.\n";
-}
-
-// Деструктор
-Person::~Person() {
-    cout << "Деструктор вызван. Освобождение памяти для имени.\n";
-    delete[] name;
-}
 
 // Геттеры
 int Person::getAge()  {
@@ -52,7 +24,7 @@ void Person::setAge(int age) { this->age = age; }
 void Person::setName(const char* name) {
     delete[] this->name; // Удаляем старую строку
     this->name = new char[strlen(name) + 1];
-    strcpy(this->name, name);
+    strcpy_s(this->name,99, name);
 }
 
 void Person::setFreeHands(int freeHands) { 

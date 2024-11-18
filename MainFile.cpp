@@ -10,6 +10,7 @@ using namespace std;
 
 
 int main() {
+    setlocale(0, "RU");
 
     cout << "Person" << "\n";
     Person person1(13,100,"Maxim");

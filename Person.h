@@ -1,25 +1,46 @@
 #pragma once
 #include <iostream>
 #include <cstring>
+#include <Windows.h>
 using namespace std;
 
 class Person {
 private:
     int age;
-    char* name; // Поле-указатель для имени
+    char* name = nullptr;
     int freeHands;
     int energyLvl;
     int hungryLvl;
 
 public:
-    // Конструкторы
-    Person();                                // Конструктор без параметров
-    Person(int age, int energyLvl);          // Конструктор с параметрами
-    Person(const string& name);              // Конструктор преобразования
-    Person(int age, int energyLvl, const char* name); // Основной конструктор
+    // Конструктор без параметров
+    Person() : Person(28, 100, "Unknown") {
+        cout << "Конструктор по умолчанию вызван.\n";
+    }
+
+    // Конструктор с параметрами (возраст и энергия)
+    Person(int age, int energyLvl) : Person(age, energyLvl, "Unnamed") {
+        cout << "Конструктор с параметрами (возраст, энергия) вызван.\n";
+    }
+
+    // Конструктор преобразования от строки
+    Person(const string& name) : Person(0, 0, name.c_str()) {
+        cout << "Конструктор преобразования от строки вызван.\n";
+    }
+
+    // Основной конструктор
+    Person(int age, int energyLvl, const char* name)
+        : age(age), energyLvl(energyLvl), hungryLvl(50), freeHands(2) {
+        this->name = new char[100];
+        strcpy_s(this->name, 99, name);
+        cout << "Основной конструктор вызван.\n";
+    }
 
     // Деструктор
-    ~Person();
+    ~Person() {
+        cout << "Деструктор вызван. Освобождение памяти для имени.\n";
+        delete[] name;
+    }
 
     // Геттеры
     int getAge() ;
