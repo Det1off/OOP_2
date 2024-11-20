@@ -25,6 +25,7 @@ Person :: Person(int age, int energyLvl, const char* name) {
     setFreeHands(freeHands);
     this->name = new char[strlen(name) + 1];
     strcpy_s(this->name, strlen(name) + 1, name);
+    count++;
     cout << "Основной конструктор вызван - Person " << this << "\n";
 }
 
@@ -53,6 +54,7 @@ int Person::getEnergyLvl() {
 int Person::getHungryLvl() {
     return hungryLvl; 
 }
+
 
 // Сеттеры
 void Person::setAge(int age) { 

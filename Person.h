@@ -6,6 +6,7 @@ using namespace std;
 
 class Person {
 private:
+
     int age;
     char* name = nullptr;
     int freeHands;
@@ -13,6 +14,9 @@ private:
     int hungryLvl;
 
 public:
+
+    static int count;
+
     // Конструктор без параметров
     Person();
 
@@ -55,3 +59,4 @@ public:
     void eat();
     void display() const;
 };
+

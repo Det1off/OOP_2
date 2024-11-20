@@ -6,20 +6,19 @@
 #include "Kettle.h"
 using namespace std;
 
-
-
+int Person::count = 0;
+int Phone::count = 0;
 
 int main() {
+
     setlocale(0, "RU");
 
     cout << "Person" << "\n";
     Person person1(13,100,"Maxim");
     Person person2(12, 100);
-    Person person;
 
     person1.display();
     person2.display();
-    person.display();
 
     cout << "______________Конструктор копирования_________________" << "\n";
 
@@ -117,4 +116,6 @@ int main() {
 
     pen3.display();
 
+    cout << "___________________Person_____________Статик (обьект) был вызван - " << person1.count << "раз" << "\n";
+    cout << "___________________Phone______________Статик (обьект) был вызван - " << phone.count << "раз" << "\n";
 }

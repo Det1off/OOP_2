@@ -16,6 +16,7 @@ Phone::Phone(int batteryLvl, const char* model, string color) {
     setColor(color);
     this->model = new char [strlen(model) + 1];
     strcpy_s(this->model, strlen(model) + 1, model);
+    count++;
     cout << "Third(Main) construct was callde - Phone " << this << "\n";
 
 }

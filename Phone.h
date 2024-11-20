@@ -19,6 +19,7 @@ private:
 
 
 public:
+    static int count;
 
     //________________________Constructors__________________________
 
