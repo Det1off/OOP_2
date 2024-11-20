@@ -1,5 +1,41 @@
 #include "Person.h"
 
+//Конструкторы
+
+// Конструктор без параметров
+Person :: Person() : Person(28, 100, "Unknown") {
+    cout << "Конструктор по умолчанию вызван - Person " << this << "\n";
+}
+
+// Конструктор с параметрами (возраст и энергия)
+Person :: Person(int age, int energyLvl) : Person(age, energyLvl, "Unnamed") {
+    cout << "Конструктор с параметрами (возраст, энергия) вызван - Person " << this << "\n";
+}
+
+// Конструктор преобразования от строки
+Person :: Person(const string& name) : Person(0, 0, name.c_str()) {
+    cout << "Конструктор преобразования от строки вызван - Person " << this << "\n";
+}
+
+// Основной конструктор
+Person :: Person(int age, int energyLvl, const char* name) {
+    setAge(age);
+    setEnergyLvl(energyLvl);
+    setHungryLvl(hungryLvl);
+    setFreeHands(freeHands);
+    this->name = new char[strlen(name) + 1];
+    strcpy_s(this->name, strlen(name) + 1, name);
+    cout << "Основной конструктор вызван - Person " << this << "\n";
+}
+
+// Конструктор копирования
+Person :: Person(const Person& other) {
+    age = other.age;
+    energyLvl = other.energyLvl;
+    name = new char[strlen(other.name) + 1];
+    strcpy_s(name, strlen(other.name) + 1, other.name);
+    cout << "Конструктор был вызван - Person " << this << "\n";
+}
 
 // Геттеры
 int Person::getAge()  {
@@ -19,12 +55,14 @@ int Person::getHungryLvl() {
 }
 
 // Сеттеры
-void Person::setAge(int age) { this->age = age; }
+void Person::setAge(int age) { 
+    this->age = age; 
+}
 
 void Person::setName(const char* name) {
     delete[] this->name; // Удаляем старую строку
     this->name = new char[strlen(name) + 1];
-    strcpy_s(this->name,99, name);
+    strcpy_s(this->name,strlen(name) + 1, name);
 }
 
 void Person::setFreeHands(int freeHands) { 
@@ -61,6 +99,5 @@ void Person::eat() {
 }
 
 void Person::display() const {
-    cout << "Возраст: " << age << ", Имя: " << name
-        << ", Уровень энергии: " << energyLvl << "\n";
+    cout << "Возраст: " << age << ", Имя: " << name << ", Уровень энергии: " << energyLvl << "\n";
 }

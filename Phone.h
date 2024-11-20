@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <Windows.h>
+#include <cstring>
 #include "Person.h"
 using namespace std;
 
@@ -7,7 +9,7 @@ using namespace std;
 class Phone {
 private:
     string number;
-    string model;
+    char* model = nullptr;
     string OS;
     int batteryLvl;
     string material;
@@ -19,62 +21,51 @@ private:
 public:
 
     //________________________Constructors__________________________
+
     // Явный конструктор без параметров
-    Phone() : Phone(28, "Sony", "Red") {
-        cout << "Construct was called" << "\n";
+    Phone();
+
+    Phone(int batteryLvl);
+
+    Phone(int batteryLvl, const char* model, string color);
+
+    // Конструктор копирования
+    Phone(const Phone& other);
+
+    // Деструктор
+    ~Phone() {
+        delete[] model;
+        cout << "Деструктор был вызван - Phone " << this << "\n";
     }
 
-    Phone(int batteryLvl) : Phone(batteryLvl, "Unknow", "Unknow") {
-        cout << "Second construct was callde" << "\n";
-    }
 
-    Phone(int batteryLvl, string model, string color) {
-        cout << "Third(Main) construct was callde" << "\n";
-        this->batteryLvl = batteryLvl;
-        this->model = model;
-        this->color = color;
-    }
     //_________________________________________ Getters _______________________
+    
     string getNumber();
-
-    string getModel();
-
+    const char* getModel();
     string getOS();
-
     string getMaterial();
-
     int getBatteryLvl();
-
     string getColor();
 
 
     //______________________________________ Setters _______________________________
+    
     void setNumber(string);
-
-    void setModel(string);
-
+    void setModel(const char*);
     void setOS(string);
-
     void setMaterial(string);
-
     void setBatteryLvl(int);
-
     void setColor(string);
-
 
 
     //__________________________________________ Methodes ____________________________________
 
     void turnOn();
-
     void turnOff();
-
     void call(string, Person&);
-
     void charge(int);
-
     void checkBattery();
-
     void display() const;
 };
 

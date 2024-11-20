@@ -1,5 +1,35 @@
 #include "Book.h"
 
+//________________________Constructors__________________________
+// Явный конструктор без параметров
+Book::Book() : Book(35, "Sony", 11) {
+    cout << "Construct was called Book" << this << "\n";
+}
+
+Book::Book(int pages) : Book(pages, "Unknow", 0) {
+    cout << "Second construct was callde Book" << this << "\n";
+}
+
+Book::Book(int pages, const char* author, int currentPage) {
+
+    this->pages = pages;
+    this->author = new char[strlen(author) + 1];
+    strcpy_s(this->author, strlen(author) + 1, author);
+    this->currentPage = currentPage;
+
+    cout << "Third(Main) construct was called Book" << this << "\n";
+
+}
+
+
+Book::Book(const Book& other) {
+    pages = other.pages;
+    author = new char[strlen(other.author) + 1];
+    strcpy_s(author, strlen(other.author) + 1, other.author);
+    currentPage = other.currentPage;
+    cout << "Конструктор был вызван Book" << this << "\n";
+}
+
 
 //_________________________________________ Getters _______________________
 
@@ -19,30 +49,32 @@ int Book::getCurrentPage() {
     return currentPage;
 }
 
-string Book::getAuthor() {
+const char* Book::getAuthor() {
     return author;
 }
 
 //______________________________________ Setters _______________________________
 
-void Book::setTitle(string newTitle) {
-    title = newTitle;
+void Book::setTitle(string title) {
+    this->title = title;
 }
 
-void Book::setPages(int newPages) {
-    pages = newPages;
+void Book::setPages(int pages) {
+    this->pages = pages;
 }
 
-void Book::setGenre(string newGenre) {
-    genre = newGenre;
+void Book::setGenre(string genre) {
+    this->genre = genre;
 }
 
-void Book::setCurrentPage(int newCurrentPage) {
-    currentPage = newCurrentPage;
+void Book::setCurrentPage(int currentPage) {
+    this->currentPage = currentPage;
 }
 
-void Book::setAuthor(string newAuthor) {
-    author = newAuthor;
+void Book::setAuthor(const char* author) {
+    delete[] this->author; // Удаляем старую строку
+    this->author = new char[strlen(author) + 1];
+    strcpy_s(this->author, strlen(author) + 1, author);
 }
 
 

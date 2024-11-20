@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <Windows.h>
+#include <cstring>
 using namespace std;
 
 class Pen {
@@ -7,69 +9,57 @@ private:
     string color;
     double inkLvl;
     string type;
-    string material;
+    char* material = nullptr;
     bool isCapped;
     string brand;
-
-
-
 
 public:
 
     //________________________Constructors__________________________
+    
     // Явный конструктор без параметров
-    Pen() : Pen("Metal", "Automatic", "Penny") {
-        cout << "Construct was called" << "\n";
+    Pen();
+
+    Pen(const char* material);
+
+    Pen(const char* material, string type, string brand);
+
+    // Конструктор копирования
+
+    Pen(const Pen& other);
+
+    // Деструктор
+
+    ~Pen() {
+        delete[] material;
+        cout << "Деструктор вызван - Pen " << this << "\n";
     }
 
-    Pen(string material) : Pen(material, "Unknow", "Unknow") {
-        cout << "Second construct was callde" << "\n";
-    }
-
-    Pen(string material, string type, string brand) {
-        cout << "Third(Main) construct was callde" << "\n";
-        this->material = material;
-        this->type = type;
-        this->brand = brand;
-    }
 
 //_________________________________________ Getters _______________________
 
     string getColor();
-
     double getInkLvl();
-
     string getType();
-
-    string getMaterial();
-
+    const char* getMaterial();
     string getBrand();
 
 
 //______________________________________ Setters _______________________________
 
     void setColor(string);
-
     void setInkLvl(double);
-
     void setType(string);
-
-    void setMaterial(string);
-
+    void setMaterial(const char*);
     void setBrand(string);
 
-
 //__________________________________________ Methodes ____________________________________
+    
     void cap();
-
     void uncap();
-
     void write();
-
     void refill(double);
-
     void checkInkLevel();
-
     void display() const;
 };
 

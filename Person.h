@@ -14,32 +14,24 @@ private:
 
 public:
     // Конструктор без параметров
-    Person() : Person(28, 100, "Unknown") {
-        cout << "Конструктор по умолчанию вызван.\n";
-    }
+    Person();
 
     // Конструктор с параметрами (возраст и энергия)
-    Person(int age, int energyLvl) : Person(age, energyLvl, "Unnamed") {
-        cout << "Конструктор с параметрами (возраст, энергия) вызван.\n";
-    }
+    Person(int age, int energyLvl);
 
     // Конструктор преобразования от строки
-    Person(const string& name) : Person(0, 0, name.c_str()) {
-        cout << "Конструктор преобразования от строки вызван.\n";
-    }
+    Person(const string& name);
 
     // Основной конструктор
-    Person(int age, int energyLvl, const char* name)
-        : age(age), energyLvl(energyLvl), hungryLvl(50), freeHands(2) {
-        this->name = new char[100];
-        strcpy_s(this->name, 99, name);
-        cout << "Основной конструктор вызван.\n";
-    }
+    Person(int age, int energyLvl, const char* name);
 
+    // Конструктор копирования
+    Person(const Person& other);
+    
     // Деструктор
     ~Person() {
-        cout << "Деструктор вызван. Освобождение памяти для имени.\n";
         delete[] name;
+        cout << "Деструктор вызван. Освобождение памяти для имени - Person " << this << "\n";
     }
 
     // Геттеры

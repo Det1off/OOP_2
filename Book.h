@@ -1,12 +1,13 @@
 #pragma once
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 
 class Book {
 private:
     string title;
-    string author;
+    char* author = nullptr;
     int pages;
     string genre;
     int currentPage;
@@ -17,19 +18,18 @@ public:
 
     //________________________Constructors__________________________
     // явный конструктор без параметров
-    Book() : Book(35, "Sony", 11) {
-        cout << "Construct was called" << "\n";
-    }
+    Book();
 
-    Book(int pages) : Book(pages, "Unknow", 0) {
-        cout << "Second construct was callde" << "\n";
-    }
+    Book(int pages);
 
-    Book(int pages, string author, int currentPage) {
-        cout << "Third(Main) construct was callde" << "\n";
-        this->pages = pages;
-        this->author = author;
-        this->currentPage = currentPage;
+    Book(int pages, const char* author, int currentPage);
+
+ 
+    Book(const Book& other);
+
+   ~Book() {
+        delete[] author;
+        cout << "ƒеструктор вызван. ќсвобождение пам€ти дл€ имени Book" << this << "\n";
     }
 
     //_________________________________________ Getters _______________________
@@ -42,7 +42,7 @@ public:
 
     int getCurrentPage();
 
-    string getAuthor();
+    const char* getAuthor();
 
     //______________________________________ Setters _______________________________
 
@@ -54,7 +54,7 @@ public:
 
     void setCurrentPage(int);
 
-    void setAuthor(string);
+    void setAuthor(const char*);
 
 
 

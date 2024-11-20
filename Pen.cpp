@@ -1,5 +1,33 @@
 #include "Pen.h"
 
+//________________________Constructors__________________________
+
+// Явный конструктор без параметров
+Pen::Pen() : Pen("Metal", "Automatic", "Penny") {
+    cout << "Construct was called - Pen " << "\n";
+}
+
+Pen::Pen(const char* material) : Pen(material, "Unknow", "Unknow") {
+    cout << "Second construct was callde - Pen " << "\n";
+}
+
+Pen::Pen(const char* material, string type, string brand) {
+    this->type = type;
+    this->brand = brand;
+    this->material = new char[strlen(material) + 1];
+    strcpy_s(this->material, strlen(material) + 1, material);
+    cout << "Third(Main) construct was callde - Pen" << "\n";
+}
+
+// Конструктор копирования
+
+Pen::Pen(const Pen& other) {
+    material = new char[strlen(other.material) + 1];
+    strcpy_s(material, strlen(other.material) + 1, other.material);
+    cout << "Конструктор копирования был вызван - Pen " << this << "\n";
+}
+
+
 //_________________________________________ Getters _______________________
 
 string Pen:: getColor() {
@@ -14,7 +42,7 @@ string Pen::getType() {
     return type;
 }
 
-string Pen::getMaterial() {
+const char* Pen::getMaterial() {
     return material;
 }
 
@@ -25,24 +53,27 @@ string Pen::getBrand() {
 
 //______________________________________ Setters _______________________________
 
-void Pen::setColor(string newColor) {
-    color = newColor;
+void Pen::setColor(string color) {
+    this->color = color;
 }
 
-void Pen::setInkLvl(double newInkLvl) {
-    inkLvl = newInkLvl;
+void Pen::setInkLvl(double inkLvl) {
+    this->inkLvl = inkLvl;
 }
 
-void Pen::setType(string newType) {
-    type = newType;
+void Pen::setType(string type) {
+    this->type = type;
 }
 
-void Pen::setMaterial(string newMaterial) {
-    material = newMaterial;
+void Pen::setMaterial(const char* material) {
+    delete[] this->material;
+    this->material = new char[strlen(material)];
+    strcpy_s(this->material, strlen(material) + 1, material);
+
 }
 
-void Pen::setBrand(string newBrand) {
-    brand = newBrand;
+void Pen::setBrand(string brand) {
+    this->brand = brand;
 }
 
 

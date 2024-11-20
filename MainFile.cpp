@@ -20,7 +20,13 @@ int main() {
     person1.display();
     person2.display();
     person.display();
-    
+
+    cout << "______________Конструктор копирования_________________" << "\n";
+
+    Person person3 = person1;
+
+    person3.display();
+
     cout << "\n" << "\n";
     
     //person.setName("Maxim");
@@ -36,6 +42,13 @@ int main() {
     phone1.display();
     phone2.display();
     phone.display();
+
+    cout << "Конструктор копирования" << "\n";
+
+    Phone phone3 = phone2;
+    phone.display();
+
+
 
     cout << "\n" << "\n";
 
@@ -56,6 +69,11 @@ int main() {
     kettle2.display();
     kettle.display();
 
+    cout << "Вызов конструктора копирования" << "\n";
+
+    Kettle kettle3 = kettle2;
+    kettle3.display();
+
     cout << "\n" << "\n";
 
     //kettle.setIsWorking("Yes"); // No/Yes
@@ -67,9 +85,17 @@ int main() {
     Book book2(50, "Pushkin", 22);
     Book book;
 
+
+
     book1.display();
     book2.display();
     book.display();
+
+    cout << "______________Конструктор копирования_________________" << "\n";
+
+    Book book3 = book2;
+
+    book3.display();
 
     cout << "\n" << "\n";
 
@@ -84,5 +110,11 @@ int main() {
     pen1.display();
     pen2.display();
     pen.display();
+
+    cout << "Конструктор копирования - Pen " << "\n";
+
+    Pen pen3 = pen2;
+
+    pen3.display();
 
 }
