@@ -28,6 +28,13 @@ Kettle::Kettle(const Kettle& other) {
     cout << "Конструктор копирования был вызван - Kettle " << this << "\n";
 }
 
+//Деструктор
+
+Kettle::~Kettle() {
+    delete[] brand;
+    cout << "Деструктор был вызван - Kettle " << this << "\n";
+}
+
 //_________________________________________ Getters _______________________
 
 const char* Kettle::getBrand() {

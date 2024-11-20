@@ -30,6 +30,12 @@ Phone::Phone(const Phone& other) {
     cout << "Конструктор был вызван - Phone " << this << "\n";
 }
 
+ // Деструктор
+Phone::~Phone() {
+    delete[] model;
+    cout << "Деструктор был вызван - Phone " << this << "\n";
+}
+
 
 //_________________________________________ Getters _______________________
 string Phone::getNumber() {

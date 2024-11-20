@@ -37,6 +37,11 @@ Person :: Person(const Person& other) {
     strcpy_s(name, strlen(other.name) + 1, other.name);
     cout << "Конструктор был вызван - Person " << this << "\n";
 }
+//Деструктор
+Person::~Person() {
+    delete[] name;
+    cout << "Деструктор вызван. Освобождение памяти для имени - Person " << this << "\n";
+}
 
 // Геттеры
 int Person::getAge()  {

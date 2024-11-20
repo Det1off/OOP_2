@@ -33,10 +33,7 @@ public:
     Person(const Person& other);
     
     // Деструктор
-    ~Person() {
-        delete[] name;
-        cout << "Деструктор вызван. Освобождение памяти для имени - Person " << this << "\n";
-    }
+    ~Person();
 
     // Геттеры
     int getAge() ;

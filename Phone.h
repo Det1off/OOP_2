@@ -34,10 +34,7 @@ public:
     Phone(const Phone& other);
 
     // Деструктор
-    ~Phone() {
-        delete[] model;
-        cout << "Деструктор был вызван - Phone " << this << "\n";
-    }
+    ~Phone();
 
 
     //_________________________________________ Getters _______________________
