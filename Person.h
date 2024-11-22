@@ -14,6 +14,10 @@ private:
     int hungryLvl;
 
 public:
+    // Оператор перегрузки
+
+    bool operator>(const Person& other);
+
 
     static int count;
 

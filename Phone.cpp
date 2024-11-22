@@ -1,5 +1,14 @@
 #include "Phone.h"
 
+//ќператор перегрузки 
+
+Phone Phone::operator+(const Phone& other) {
+    Phone temp;
+    temp.batteryLvl = this->batteryLvl + other.batteryLvl;
+    return temp;
+}
+
+
 //________________________Constructors__________________________
 
 // явный конструктор без параметров

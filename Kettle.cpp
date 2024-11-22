@@ -1,5 +1,14 @@
 #include "Kettle.h"
 
+//Оператор перегрузки
+ostream& operator<<(ostream& out, const Kettle& kettle) {
+    out << "Чайник бренда: " << kettle.brand
+        << ", Цвет: " << kettle.color
+        << ", Температура: " << kettle.temperature << " градусов";
+    return out;
+}
+
+
 //________________________Constructors__________________________
 // Явный конструктор без параметров
 Kettle::Kettle() : Kettle(28, "Gray", "Panasonic") {

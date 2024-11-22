@@ -19,6 +19,10 @@ private:
 
 
 public:
+    // Оператор перегрузки
+
+    Phone operator+(const Phone& other);
+
     static int count;
 
     //________________________Constructors__________________________

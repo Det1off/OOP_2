@@ -1,5 +1,12 @@
 #include "Person.h"
 
+//Оператор перегрузки
+
+bool Person::operator>(const Person& other) {
+    return this->age > other.age;
+}
+
+
 //Конструкторы
 
 // Конструктор без параметров

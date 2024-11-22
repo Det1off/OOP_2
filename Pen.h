@@ -14,6 +14,9 @@ private:
     string brand;
 
 public:
+    
+    //Оператор перегрузки
+    friend istream& operator>>(istream& in, Pen& pen);
 
     //________________________Constructors__________________________
     

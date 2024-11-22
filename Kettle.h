@@ -18,6 +18,8 @@ private:
 
 
 public:
+    //ќператор перегрузки
+    friend ostream& operator<<(ostream& out, const Kettle& kettle);
 
     //________________________Constructors__________________________
     // явный конструктор без параметров

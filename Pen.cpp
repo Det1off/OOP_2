@@ -1,5 +1,15 @@
 #include "Pen.h"
 
+//ќператор перегрузки
+istream& operator>>(istream& in, Pen& pen) {
+    cout << "¬ведите цвет ручки: ";
+    in >> pen.color;
+    cout << "¬ведите уровень чернил: ";
+    in >> pen.inkLvl;
+    return in;
+}
+
+
 //________________________Constructors__________________________
 
 // явный конструктор без параметров

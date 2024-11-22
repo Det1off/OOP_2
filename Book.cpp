@@ -1,5 +1,11 @@
 #include "Book.h"
 
+//ќператор перегрузки
+bool Book::operator==(const Book& other) {
+    return this->pages == other.pages;
+}
+
+
 //________________________Constructors__________________________
 // явный конструктор без параметров
 Book::Book() : Book(35, "Sony", 11) {
