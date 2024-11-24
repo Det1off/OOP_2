@@ -1,11 +1,42 @@
 #include "Kettle.h"
 
 //Оператор перегрузки
-ostream& operator<<(ostream& out, const Kettle& kettle) {
-    out << "Чайник бренда: " << kettle.brand
-        << ", Цвет: " << kettle.color
-        << ", Температура: " << kettle.temperature << " градусов";
+bool operator>(const Kettle& lhs, const Kettle& rhs) {
+    return lhs.power > rhs.power;
+}
+
+bool operator<(const Kettle& lhs, const Kettle& rhs) {
+    return lhs.power < rhs.power;
+}
+
+bool operator==(const Kettle& lhs, const Kettle& rhs) {
+    return lhs.power == rhs.power && lhs.volume == rhs.volume && lhs.brand == rhs.brand;
+}
+
+bool operator!=(const Kettle& lhs, const Kettle& rhs) {
+    return !(lhs == rhs);
+}
+
+ostream& operator<<(ostream& out, const Kettle& obj) {
+    out << "Kettle [Brand: " << obj.brand << ", Power: " << obj.power
+        << "W, Volume: " << obj.volume << "L, Color: " << obj.color << "]";
     return out;
+}
+
+istream& operator>>(istream& in, Kettle& obj) {
+    cout << "Enter kettle brand: ";
+    in >> obj.brand;
+
+    cout << "Enter kettle power (W): ";
+    in >> obj.power;
+
+    cout << "Enter kettle volume (L): ";
+    in >> obj.volume;
+
+    cout << "Enter kettle color: ";
+    in >> obj.color;
+
+    return in;
 }
 
 

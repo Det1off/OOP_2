@@ -2,10 +2,41 @@
 
 //Оператор перегрузки
 
-bool Person::operator>(const Person& other) {
-    return this->age > other.age;
+bool operator>(const Person& lhs, const Person& rhs) {
+    return lhs.energyLvl > rhs.energyLvl;
 }
 
+bool operator<(const Person& lhs, const Person& rhs) {
+    return lhs.energyLvl < rhs.energyLvl;
+}
+
+bool operator==(const Person& lhs, const Person& rhs) {
+    return lhs.age == rhs.age && strcmp(lhs.name, rhs.name) == 0;
+}
+
+bool operator!=(const Person& lhs, const Person& rhs) {
+    return !(lhs == rhs);
+}
+
+ostream& operator<<(ostream& os, const Person& person) {
+    os << "Person(name: " << person.name << ", age: " << person.age << ", energy: " << person.energyLvl << ")";
+    return os;
+}
+
+istream& operator>>(istream& is, Person& person) {
+    cout << "Enter name: ";
+    char name[100];
+    is >> name;
+    person.setName(name);
+
+    cout << "Enter age: ";
+    is >> person.age;
+
+    cout << "Enter energy level: ";
+    is >> person.energyLvl;
+
+    return is;
+}
 
 //Конструкторы
 

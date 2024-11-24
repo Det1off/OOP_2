@@ -19,7 +19,12 @@ private:
 
 public:
     //ќператор перегрузки
-    friend ostream& operator<<(ostream& out, const Kettle& kettle);
+    friend bool operator>(const Kettle& lhs, const Kettle& rhs);
+    friend bool operator<(const Kettle& lhs, const Kettle& rhs);
+    friend bool operator==(const Kettle& lhs, const Kettle& rhs);
+    friend bool operator!=(const Kettle& lhs, const Kettle& rhs);
+    friend ostream& operator<<(ostream& out, const Kettle& obj);
+    friend istream& operator>>(istream& in, Kettle& obj);
 
     //________________________Constructors__________________________
     // явный конструктор без параметров

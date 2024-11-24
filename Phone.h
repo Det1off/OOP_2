@@ -21,7 +21,12 @@ private:
 public:
     // Оператор перегрузки
 
-    Phone operator+(const Phone& other);
+    friend bool operator>(const Phone& lhs, const Phone& rhs);
+    friend bool operator<(const Phone& lhs, const Phone& rhs);
+    friend bool operator==(const Phone& lhs, const Phone& rhs);
+    friend bool operator!=(const Phone& lhs, const Phone& rhs);
+    friend ostream& operator<<(ostream& os, const Phone& phone);
+    friend istream& operator>>(istream& is, Phone& phone);
 
     static int count;
 

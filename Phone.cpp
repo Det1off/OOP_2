@@ -2,12 +2,41 @@
 
 //Оператор перегрузки 
 
-Phone Phone::operator+(const Phone& other) {
-    Phone temp;
-    temp.batteryLvl = this->batteryLvl + other.batteryLvl;
-    return temp;
+bool operator>(const Phone& lhs, const Phone& rhs) {
+    return lhs.batteryLvl > rhs.batteryLvl;
 }
 
+bool operator<(const Phone& lhs, const Phone& rhs) {
+    return lhs.batteryLvl < rhs.batteryLvl;
+}
+
+bool operator==(const Phone& lhs, const Phone& rhs) {
+    return lhs.batteryLvl == rhs.batteryLvl && lhs.color == rhs.color && strcmp(lhs.model, rhs.model) == 0;
+}
+
+bool operator!=(const Phone& lhs, const Phone& rhs) {
+    return !(lhs == rhs);
+}
+
+ostream& operator<<(ostream& os, const Phone& phone) {
+    os << "Phone(model: " << phone.model << ", color: " << phone.color << ", batteryLvl: " << phone.batteryLvl << ")";
+    return os;
+}
+
+istream& operator>>(istream& is, Phone& phone) {
+    cout << "Enter model: ";
+    char model[100];
+    is >> model;
+    phone.setModel(model);
+
+    cout << "Enter color: ";
+    is >> phone.color;
+
+    cout << "Enter battery level: ";
+    is >> phone.batteryLvl;
+
+    return is;
+}
 
 //________________________Constructors__________________________
 

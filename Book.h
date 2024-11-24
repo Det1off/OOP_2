@@ -17,7 +17,12 @@ private:
 public:
 
     //ќператор перегрузки
-    bool operator==(const Book& other);
+    friend bool operator>(const Book& lhs, const Book& rhs);
+    friend bool operator<(const Book& lhs, const Book& rhs);
+    friend bool operator==(const Book& lhs, const Book& rhs);
+    friend bool operator!=(const Book& lhs, const Book& rhs);
+    friend ostream& operator<<(ostream& out, const Book& obj);
+    friend istream& operator>>(istream& in, Book& obj);
 
     //________________________Constructors__________________________
     // явный конструктор без параметров

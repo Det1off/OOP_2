@@ -1,14 +1,46 @@
 #include "Pen.h"
 
 //ќператор перегрузки
-istream& operator>>(istream& in, Pen& pen) {
-    cout << "¬ведите цвет ручки: ";
-    in >> pen.color;
-    cout << "¬ведите уровень чернил: ";
-    in >> pen.inkLvl;
-    return in;
+bool operator>(const Pen& lhs, const Pen& rhs) {
+    return lhs.inkLevel > rhs.inkLevel;
 }
 
+bool operator<(const Pen& lhs, const Pen& rhs) {
+    return lhs.inkLevel < rhs.inkLevel;
+}
+
+bool operator==(const Pen& lhs, const Pen& rhs) {
+    return lhs.inkLevel == rhs.inkLevel && lhs.color == rhs.color;
+}
+
+bool operator!=(const Pen& lhs, const Pen& rhs) {
+    return !(lhs == rhs);
+}
+
+ostream& operator<<(ostream& out, const Pen& obj) {
+    out << "Pen [Brand: " << obj.brand << ", Color: " << obj.color 
+        << ", Ink Level: " << obj.inkLevel 
+        << ", Gel: " << (obj.isGel ? "Yes" : "No") << "]";
+    return out;
+}
+
+istream& operator>>(istream& in, Pen& obj) {
+    char tempBrand[100];
+    cout << "Enter pen brand: ";
+    in >> tempBrand;
+    obj.setBrand(tempBrand);
+
+    cout << "Enter pen color: ";
+    in >> obj.color;
+
+    cout << "Enter ink level: ";
+    in >> obj.inkLevel;
+
+    cout << "Is it a gel pen? (1 for yes, 0 for no): ";
+    in >> obj.isGel;
+
+    return in;
+}
 
 //________________________Constructors__________________________
 

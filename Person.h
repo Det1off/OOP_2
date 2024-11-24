@@ -16,7 +16,12 @@ private:
 public:
     // Оператор перегрузки
 
-    bool operator>(const Person& other);
+    friend bool operator>(const Person& lhs, const Person& rhs);
+    friend bool operator<(const Person& lhs, const Person& rhs);
+    friend bool operator==(const Person& lhs, const Person& rhs);
+    friend bool operator!=(const Person& lhs, const Person& rhs);
+    friend ostream& operator<<(ostream& os, const Person& person);
+    friend istream& operator>>(istream& is, Person& person);
 
 
     static int count;

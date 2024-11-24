@@ -1,8 +1,43 @@
 #include "Book.h"
 
 //Оператор перегрузки
-bool Book::operator==(const Book& other) {
-    return this->pages == other.pages;
+bool operator>(const Book& lhs, const Book& rhs) {
+    return lhs.pageCount > rhs.pageCount;
+}
+
+bool operator<(const Book& lhs, const Book& rhs) {
+    return lhs.pageCount < rhs.pageCount;
+}
+
+bool operator==(const Book& lhs, const Book& rhs) {
+    return lhs.title == rhs.title && lhs.author == rhs.author && lhs.pageCount == rhs.pageCount;
+}
+
+bool operator!=(const Book& lhs, const Book& rhs) {
+    return !(lhs == rhs);
+}
+
+ostream& operator<<(ostream& out, const Book& obj) {
+    out << "Book [Title: " << obj.title << ", Author: " << obj.author
+        << ", Pages: " << obj.pageCount << ", Year Published: " << obj.yearPublished << "]";
+    return out;
+}
+
+istream& operator>>(istream& in, Book& obj) {
+    cout << "Enter book title: ";
+    in.ignore(); // Игнорируем перенос строки
+    getline(in, obj.title);
+
+    cout << "Enter book author: ";
+    getline(in, obj.author);
+
+    cout << "Enter page count: ";
+    in >> obj.pageCount;
+
+    cout << "Enter year published: ";
+    in >> obj.yearPublished;
+
+    return in;
 }
 
 

@@ -16,7 +16,12 @@ private:
 public:
     
     //Оператор перегрузки
-    friend istream& operator>>(istream& in, Pen& pen);
+    friend bool operator>(const Pen& lhs, const Pen& rhs);
+    friend bool operator<(const Pen& lhs, const Pen& rhs);
+    friend bool operator==(const Pen& lhs, const Pen& rhs);
+    friend bool operator!=(const Pen& lhs, const Pen& rhs);
+    friend ostream& operator<<(ostream& out, const Pen& obj);
+    friend istream& operator>>(istream& in, Pen& obj);
 
     //________________________Constructors__________________________
     
