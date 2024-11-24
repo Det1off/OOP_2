@@ -23,6 +23,12 @@ public:
     friend ostream& operator<<(ostream& out, const Pen& obj);
     friend istream& operator>>(istream& in, Pen& obj);
 
+    // ќператор присваивани€
+    Pen& operator=(const Pen& other);
+
+    // явный оператор преобразовани€ в строку
+    explicit operator std::string() const;
+
     //________________________Constructors__________________________
     
     // явный конструктор без параметров

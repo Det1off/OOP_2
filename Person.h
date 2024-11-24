@@ -23,6 +23,11 @@ public:
     friend ostream& operator<<(ostream& os, const Person& person);
     friend istream& operator>>(istream& is, Person& person);
 
+    // ќператор присваивани€
+    Person& operator=(const Person& other);
+
+    // явный оператор преобразовани€ в строку
+    explicit operator std::string() const;
 
     static int count;
 

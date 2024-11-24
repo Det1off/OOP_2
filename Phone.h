@@ -28,6 +28,12 @@ public:
     friend ostream& operator<<(ostream& os, const Phone& phone);
     friend istream& operator>>(istream& is, Phone& phone);
 
+    // ќператор присваивани€
+    Phone& operator=(const Phone& other);
+
+    // явный оператор преобразовани€ в строку
+    explicit operator std::string() const;
+
     static int count;
 
     //________________________Constructors__________________________

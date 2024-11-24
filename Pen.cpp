@@ -42,6 +42,29 @@ istream& operator>>(istream& in, Pen& obj) {
     return in;
 }
 
+// Явное преобразование в строку
+Pen::operator std::string() const {
+    return "Type: " + type + ", Brand: " + brand + ", Ink Level: " + std::to_string(inkLvl);
+}
+
+// Перегрузка оператора присваивания
+Pen& Pen::operator=(const Pen& other) {
+    if (this != &other) {
+        delete[] material;
+
+        color = other.color;
+        inkLvl = other.inkLvl;
+        type = other.type;
+        brand = other.brand;
+        isCapped = other.isCapped;
+
+        material = new char[strlen(other.material) + 1];
+        strcpy_s(material, strlen(other.material) + 1, other.material);
+    }
+    return *this;
+}
+
+
 //________________________Constructors__________________________
 
 // Явный конструктор без параметров

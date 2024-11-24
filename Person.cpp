@@ -38,6 +38,29 @@ istream& operator>>(istream& is, Person& person) {
     return is;
 }
 
+
+// явное преобразование в строку
+Person::operator std::string() const {
+    return "Name: " + std::string(name) + ", Age: " + std::to_string(age) + ", Energy Level: " + std::to_string(energyLvl);
+}
+
+// ѕерегрузка оператора присваивани€
+Person& Person::operator=(const Person& other) {
+    if (this != &other) {
+        delete[] name;
+
+        age = other.age;
+        energyLvl = other.energyLvl;
+        hungryLvl = other.hungryLvl;
+        freeHands = other.freeHands;
+
+        name = new char[strlen(other.name) + 1];
+        strcpy_s(name, strlen(other.name) + 1, other.name);
+    }
+    return *this;
+}
+
+
 // онструкторы
 
 //  онструктор без параметров

@@ -38,6 +38,24 @@ istream& operator>>(istream& is, Phone& phone) {
     return is;
 }
 
+// Явное преобразование в строку
+Phone::operator std::string() const {
+    return "Model: " + std::string(model) + ", Color: " + color + ", Battery Level: " + std::to_string(batteryLvl) + "%";
+}
+
+// Перегрузка оператора присваивания
+Phone& Phone::operator=(const Phone& other) {
+    if (this != &other) {  // Проверка на самоприсваивание
+        delete[] model;    // Освобождение старой памяти
+
+        batteryLvl = other.batteryLvl;
+        color = other.color;
+        model = new char[strlen(other.model) + 1];
+        strcpy_s(model, strlen(other.model) + 1, other.model);
+    }
+    return *this;
+}
+
 //________________________Constructors__________________________
 
 // Явный конструктор без параметров

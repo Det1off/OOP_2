@@ -40,6 +40,28 @@ istream& operator>>(istream& in, Book& obj) {
     return in;
 }
 
+// Явное преобразование в строку
+Book::operator std::string() const {
+    return "Title: " + title + ", Author: " + std::string(author) + ", Pages: " + std::to_string(pages) + ", Current Page: " + std::to_string(currentPage);
+}
+
+// Перегрузка оператора присваивания
+Book& Book::operator=(const Book& other) {
+    if (this != &other) {
+        delete[] author;
+
+        title = other.title;
+        pages = other.pages;
+        genre = other.genre;
+        currentPage = other.currentPage;
+
+        author = new char[strlen(other.author) + 1];
+        strcpy_s(author, strlen(other.author) + 1, other.author);
+    }
+    return *this;
+}
+
+
 
 //________________________Constructors__________________________
 // Явный конструктор без параметров

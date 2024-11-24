@@ -39,6 +39,29 @@ istream& operator>>(istream& in, Kettle& obj) {
     return in;
 }
 
+// явное преобразование в строку
+Kettle::operator std::string() const {
+    return "Brand: " + std::string(brand) + ", Color: " + color + ", Temperature: " + std::to_string(temperature) + "∞C";
+}
+
+// ѕерегрузка оператора присваивани€
+Kettle& Kettle::operator=(const Kettle& other) {
+    if (this != &other) {
+        delete[] brand;
+
+        capacity = other.capacity;
+        color = other.color;
+        isWorking = other.isWorking;
+        material = other.material;
+        temperature = other.temperature;
+
+        brand = new char[strlen(other.brand) + 1];
+        strcpy_s(brand, strlen(other.brand) + 1, other.brand);
+    }
+    return *this;
+}
+
+
 
 //________________________Constructors__________________________
 // явный конструктор без параметров
